@@ -16,16 +16,16 @@ jobs:
 
     steps:
     - name: before_install
-      run: docker build -t brinst07/react-test-app -f ./frontend/Dockerfile.dev ./frontend
+      run: docker build -t brinst07/react-test-app -f ../frontend/Dockerfile.dev ../frontend
       
     - name: script
       run: docker run -e CI=true brinst07/react-test-app npm test
       
     - name: after_success
       run: |
-           docker build -t brinst07/docker-frontend ./frontend
-           docker build -t brinst07/docker-backend ./backend
-           docker build -t brinst07/docker-nginx ./nginx
+           docker build -t brinst07/docker-frontend ../frontend
+           docker build -t brinst07/docker-backend ../backend
+           docker build -t brinst07/docker-nginx ../nginx
            
     - name: Login to DockerHub
       uses: docker/login-action@v1

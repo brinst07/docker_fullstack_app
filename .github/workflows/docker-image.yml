@@ -20,6 +20,7 @@ jobs:
         node-version: [ 14.x ]
 
     steps:
+    - uses: actions/checkout@v2
     - name: after_success
       run: |
            docker build -t brinst07/docker-backend ./backend

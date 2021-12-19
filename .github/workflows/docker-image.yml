@@ -33,7 +33,7 @@ jobs:
 
     - name: build and release to DockerHub
       run: docker push brinst07/docker-backend
-      working-directory: ${{env.working-directory}}
+      working-directory: ./backend
 
   frontend:
     name: frontend_build
